@@ -124,7 +124,7 @@ const produtos = [
     {
         id: 8,
         categoria: "acai",
-        nome: "04 - Açaí + Fruta + Gotas de Chocolate",
+        nome: "08 - Açaí + Fruta + Gotas de Chocolate",
         imagem: "assets/cardapio/acai/acai-08.png",
         precos: {
             "350ml": 23.00,
@@ -142,7 +142,7 @@ const produtos = [
     {
         id: 9,
         categoria: "acai",
-        nome: "04 - Açaí + Fruta + Granola",
+        nome: "09 - Açaí + Fruta + Granola",
         imagem: "assets/cardapio/acai/acai-09.png",
         precos: {
             "350ml": 23.00,
@@ -809,7 +809,7 @@ const produtos = [
     {
         id: 47,
         categoria: "promocionais",
-        nome: "Promo Paçoca",
+        nome: "Promo Ovomaltine",
         imagem: "assets/cardapio/promocionais/promo-ovomaltine.png",
 
         descricao: "Açaí 500ml + Ovomaltine + Fruta + Leite Condensado + Bombom",
