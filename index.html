@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espaço do Açaí</title>
+    <link rel="icon" type="image/png" href="assets/favicon/favicon.png">
+    <link rel="stylesheet" href="css/layout.css">
+</head>
+
+<body>
+
+    <div id="menu-lateral" class="menu-lateral">
+        <div class="menu-header">
+            <button onclick="fecharMenu()">✕</button>
+        </div>
+
+        <div class="menu-conteudo">
+            <h3>Horário de Funcionamento</h3>
+
+            <p>Segunda: 13:45 às 22:30</p>
+            <p>Terça: Fechado</p>
+            <p>Quarta: 13:45 às 22:30</p>
+            <p>Quinta: 13:45 às 22:30</p>
+            <p>Sexta: 13:45 às 22:30</p>
+            <p>Sábado: 14:30 às 22:30</p>
+            <p>Domingo: 14:30 às 22:30</p>
+
+            <hr>
+
+            <p>📞 (34) 3212-2898</p>
+            <p>📷 @espaco.do.acai</p>
+        </div>
+    </div>
+
+    <header class="topo">
+        <button class="menu-btn" onclick="abrirMenu()">☰</button>
+        <h1>Espaço do Açaí</h1>
+    </header>
+
+    <nav class="categorias">
+        <a href="#promocionais">Promocionais</a>
+        <a href="#acai">Açaí</a>
+        <a href="#ninho">Açaí com Leite Ninho</a>
+        <a href="#pacoca">Açaí com Paçoca</a>
+        <a href="#ovomaltine">Açaí com Ovomaltine</a>
+        <a href="#kids">Açaí Kids</a>
+        <a href="#sucos">Sucos Energéticos</a>
+    </nav>
+
+    <main>
+        <section id="promocionais" class="secao">
+            <h2>Promocionais</h2>
+            <div id="lista-promocionais" class="lista-produtos"></div>
+        </section>
+
+        <section id="acai" class="secao">
+            <h2>Açaí</h2>
+            <div id="lista-acai" class="lista-produtos"></div>
+        </section>
+
+        <section id="ninho" class="secao">
+            <h2>Açaí com Leite Ninho</h2>
+            <div id="lista-ninho" class="lista-produtos"></div>
+        </section>
+
+        <section id="pacoca" class="secao">
+            <h2>Açaí com Paçoca</h2>
+            <div id="lista-pacoca" class="lista-produtos"></div>
+        </section>
+
+        <section id="ovomaltine" class="secao">
+            <h2>Açaí com Ovomaltine</h2>
+            <div id="lista-ovomaltine" class="lista-produtos"></div>
+        </section>
+
+        <section id="kids" class="secao">
+            <h2>Açaí Kids</h2>
+            <div id="lista-kids" class="lista-produtos"></div>
+        </section>
+
+        <section id="sucos" class="secao">
+            <h2>Sucos Energéticos</h2>
+            <div id="lista-sucos" class="lista-produtos"></div>
+        </section>
+    </main>
+
+    <!-- POPUP DO PRODUTO -->
+    <div id="overlay-produto" class="overlay">
+        <div class="popup-produto">
+
+            <div class="popup-header">
+                <button onclick="fecharPopupProduto()">←</button>
+                <h2 id="popup-nome"></h2>
+            </div>
+
+            <img id="popup-imagem" class="popup-imagem" src="" alt="Produto">
+
+            <section class="bloco-popup">
+                <h3>Selecione o tamanho:</h3>
+                <div id="popup-tamanhos" class="opcoes-tamanho"></div>
+            </section>
+
+            <section id="area-obrigatorios" class="bloco-popup">
+                <div id="popup-obrigatorios"></div>
+            </section>
+
+            <section class="bloco-popup">
+                <h3>Deseja adicionais?</h3>
+                <p>Opcional</p>
+                <div id="popup-adicionais"></div>
+            </section>
+
+            <textarea id="observacao" placeholder="Observação"></textarea>
+
+            <div class="rodape-popup">
+                <strong id="popup-total">R$ 0,00</strong>
+
+                <div class="controle-quantidade">
+                    <button onclick="diminuirQuantidadePopup()">-</button>
+                    <span id="quantidade-popup">1</span>
+                    <button onclick="aumentarQuantidadePopup()">+</button>
+                </div>
+
+                <button class="btn-adicionar" onclick="adicionarNaSacola()">
+                    Adicionar
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- POPUP DA SACOLA -->
+    <div id="overlay-sacola" class="overlay">
+        <div class="popup-sacola">
+
+            <div class="popup-header">
+                <button onclick="fecharSacola()">←</button>
+                <h2>Minha sacola</h2>
+            </div>
+
+            <div id="itens-sacola">
+                <p>Sua sacola está vazia.</p>
+            </div>
+
+            <h3 id="subtotal">Subtotal: R$ 0,00</h3>
+
+            <div class="acoes-sacola">
+                <button class="btn-continuar" onclick="fecharSacola()">
+                    Continuar comprando
+                </button>
+
+                <button class="btn-finalizar" onclick="abrirCheckout()">
+                    Finalizar pedido
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- CHECKOUT -->
+    <div id="overlay-checkout" class="overlay">
+        <div class="popup-checkout">
+
+            <div class="popup-header">
+                <button onclick="fecharCheckout()">←</button>
+                <h2>Finalizar pedido</h2>
+            </div>
+
+            <section class="bloco-popup">
+                <h3>Dados do cliente</h3>
+                <input id="nome-cliente" class="campo-checkout" type="text" placeholder="Seu nome:">
+                <input id="telefone-cliente" class="campo-checkout" type="tel" maxlength="15"
+                    placeholder="(34) 99999-9999" oninput="formatarTelefone(this)">
+            </section>
+
+            <section class="bloco-popup">
+                <h3>Endereço de entrega</h3>
+                <input id="rua" class="campo-checkout" type="text" placeholder="Nome da rua">
+                <input id="numero" class="campo-checkout" type="text" inputmode="numeric" placeholder="Número da casa"
+                    oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+                <input id="complemento" class="campo-checkout" type="text" placeholder="Complemento, se tiver.">
+                <input id="bairro" class="campo-checkout" type="text" placeholder="Bairro">
+                <input id="referencia" class="campo-checkout" type="text" placeholder="Ponto de referência, se tiver.">
+            </section>
+
+            <section class="bloco-popup">
+                <h3>Forma de pagamento</h3>
+                <label class="linha-opcao">
+                    <span>Dinheiro</span>
+                    <input type="radio" name="pagamento" value="Dinheiro" onchange="mostrarCamposPagamento()">
+                </label>
+
+                <label class="linha-opcao">
+                    <span>Cartão de crédito</span>
+                    <input type="radio" name="pagamento" value="Cartão de crédito" onchange="mostrarCamposPagamento()">
+                </label>
+
+                <label class="linha-opcao">
+                    <span>Cartão de débito</span>
+                    <input type="radio" name="pagamento" value="Cartão de débito" onchange="mostrarCamposPagamento()">
+                </label>
+
+                <label class="linha-opcao">
+                    <span>Pix</span>
+                    <input type="radio" name="pagamento" value="Pix" onchange="mostrarCamposPagamento()">
+                </label>
+            </section>
+
+
+            <section id="area-troco" class="bloco-popup area-extra">
+                <h3>Troco</h3>
+                <h4>Precisa de troco?</h4>
+                <label class="linha-opcao">
+                    <span>Sim</span>
+                    <input type="radio" name="troco" value="sim" onchange="mostrarCampoTroco()">
+                </label>
+                <label class="linha-opcao">
+                    <span>Não</span>
+                    <input type="radio" name="troco" value="nao" onchange="mostrarCampoTroco()">
+                </label>
+                <input id="valor-troco" class="campo-checkout" type="text" placeholder="Troco para quanto? Ex: 50,00">
+            </section>
+
+            <section id="area-pix" class="bloco-popup area-extra">
+                <h3>Pagamento via Pix</h3>
+                <p>Chave Pix: <strong id="chave-pix">espacodoacai.udi@gmail.com</strong></p>
+                <p>
+                    Após enviar o pedido, realize o Pix e envie o comprovante no WhatsApp para confirmar o preparo.
+                </p>
+            </section>
+
+            <div class="rodape-popup">
+                <button class="btn-finalizar" onclick="enviarPedidoWhatsapp()">
+                    Enviar pedido pelo WhatsApp
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- BARRA INFERIOR DA SACOLA -->
+    <div id="barra-sacola" class="barra-sacola">
+        <span>🛍️ <strong id="quantidade-sacola">0</strong></span>
+        <strong id="valor-barra">R$ 0,00</strong>
+        <button onclick="abrirSacola()">VER SACOLA</button>
+    </div>
+
+    <!-- POP UP DE ALERTA-->
+    <div id="overlay-alerta" class="overlay">
+        <div class="popup-alerta">
+
+            <h3 id="titulo-alerta">Atenção</h3>
+
+            <p id="mensagem-alerta"></p>
+
+            <button onclick="fecharAlerta()">
+                Entendi
+            </button>
+
+        </div>
+    </div>
+
+    <script src="js/produtos.js"></script>
+    <script src="js/estado.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/produto.js"></script>
+    <script src="js/sacola.js"></script>
+    <script src="js/checkout.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

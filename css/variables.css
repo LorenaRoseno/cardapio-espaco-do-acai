@@ -1,0 +1,26 @@
+:root {
+    --cor-fundo: #24003D;
+    --cor-card: #2d0233;
+    --cor-card-hover: #5A0A82;
+    --cor-destaque: #ffcc00;
+
+    --cor-texto: #FFFFFF;
+    --cor-texto-escuro: #2B0047;
+    --cor-texto-secundario: #E8D9F2;
+
+    --cor-popup: #2d0233;
+    --cor-popup-header: #2d0233;
+
+    --cor-input: #5B0F83;
+    --cor-input-hover: #6A1B9A;
+    --cor-input-selecionado: #ffcc00;
+
+    --cor-botao: #ffcc00;
+    --cor-botao-hover: #FFE766;
+    --cor-botao-texto: #2B0047;
+
+    --cor-sacola: #4B006E;
+    --cor-overlay: rgba(0, 0, 0, 0.75);
+    --cor-divisor: rgba(255, 212, 0, 0.35);
+    --cor-borda: #ffcc00;
+}
