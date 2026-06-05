@@ -301,7 +301,7 @@ const produtos = [
         id: 18,
         categoria: "ninho",
         nome: "18 - Açaí + Leite Ninho + Fruta + Leite Condensado + Paçoca",
-        imagem: "assets/cardapio/acai-leite-ninho/acai-17.png",
+        imagem: "assets/cardapio/acai-leite-ninho/acai-18.png",
         precos: {
             "350ml": 25.00,
             "500ml": 27.00,
@@ -476,7 +476,7 @@ const produtos = [
         id: 28,
         categoria: "pacoca",
         nome: "28 - Açaí + Paçoca + Fruta + Leite Condensado + Bombom",
-        imagem: "assets/cardapio/acai-pacoca/acai-27.png",
+        imagem: "assets/cardapio/acai-pacoca/acai-28.png",
         precos: {
             "350ml": 25.00,
             "500ml": 27.00,
@@ -724,7 +724,7 @@ const produtos = [
         id: 42,
         categoria: "kids",
         nome: "42 - Açaí + Fruta + Granulado + Confetes + Cobertura",
-        imagem: "assets/cardapio/acai-kids/acai-41.png",
+        imagem: "assets/cardapio/acai-kids/acai-42.png",
         precos: {
             "350ml": 25.00,
             "500ml": 27.00
