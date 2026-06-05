@@ -27,25 +27,87 @@ function carregarProdutos() {
     });
 }
 
-function abrirPopupProduto(id) {
+function abrirPopupProduto(id, itemParaEditar = null) {
     produtoAtual = produtos.find(produto => produto.id === id);
 
-    tamanhoAtual = null;
-    escolhasObrigatorias = {};
-    adicionaisAtuais = {};
-    quantidadePopup = 1;
+    if (itemParaEditar) {
+        tamanhoAtual = itemParaEditar.tamanho;
+        escolhasObrigatorias = { ...itemParaEditar.obrigatorios };
+        adicionaisAtuais = reconstruirAdicionais(itemParaEditar.adicionais);
+        quantidadePopup = itemParaEditar.quantidade;
+    } else {
+        tamanhoAtual = null;
+        escolhasObrigatorias = {};
+        adicionaisAtuais = {};
+        quantidadePopup = 1;
+    }
 
     document.querySelector("#popup-nome").textContent = produtoAtual.nome;
     document.querySelector("#popup-imagem").src = produtoAtual.imagem;
     document.querySelector("#quantidade-popup").textContent = quantidadePopup;
-    document.querySelector("#observacao").value = "";
+    document.querySelector("#observacao").value = itemParaEditar ? itemParaEditar.observacao : "";
 
     montarTamanhos();
     montarObrigatorios();
     montarAdicionais();
+
+    if (itemParaEditar) {
+        preencherEdicaoProduto();
+    }
+
     atualizarTotalPopup();
 
     document.querySelector("#overlay-produto").style.display = "flex";
+}
+function preencherEdicaoProduto() {
+    if (tamanhoAtual && tamanhoAtual !== "Único") {
+        document.querySelectorAll(".opcao-tamanho").forEach(function (botao) {
+            if (botao.querySelector("strong").textContent === tamanhoAtual) {
+                botao.classList.add("selecionado");
+            }
+        });
+    }
+
+    Object.entries(escolhasObrigatorias).forEach(function ([tipo, valores]) {
+        valores.forEach(function (valor) {
+            const input = document.querySelector(
+                `input[name="${tipo}"][value="${valor}"]`
+            );
+
+            if (input) {
+                input.checked = true;
+            }
+        });
+    });
+
+    Object.values(adicionaisAtuais).forEach(function (adicionalAtual) {
+        adicionais.forEach(function (adicional, indexAdicional) {
+            if (!adicional.opcoes && adicional.nome === adicionalAtual.nome) {
+                const span = document.querySelector(`#qtd-adicional-${indexAdicional}`);
+
+                if (span) {
+                    span.textContent = adicionalAtual.quantidade;
+                }
+            }
+
+            if (adicional.opcoes) {
+                adicional.opcoes.forEach(function (opcao, indexOpcao) {
+                    if (
+                        adicional.nome === adicionalAtual.nome &&
+                        opcao === adicionalAtual.opcao
+                    ) {
+                        const span = document.querySelector(
+                            `#qtd-adicional-${indexAdicional}-${indexOpcao}`
+                        );
+
+                        if (span) {
+                            span.textContent = adicionalAtual.quantidade;
+                        }
+                    }
+                });
+            }
+        });
+    });
 }
 
 function fecharPopupProduto() {

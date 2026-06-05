@@ -26,6 +26,7 @@ function adicionarNaSacola() {
     }, 0);
 
     const item = {
+        produtoId: produtoAtual.id,
         nome: produtoAtual.nome,
         tamanho: tamanhoAtual,
         obrigatorios: { ...escolhasObrigatorias },
@@ -35,7 +36,12 @@ function adicionarNaSacola() {
         quantidade: quantidadePopup
     };
 
-    sacola.push(item);
+    if (itemEditandoIndex !== null) {
+        sacola[itemEditandoIndex] = item;
+        itemEditandoIndex = null;
+    } else {
+        sacola.push(item);
+    }
 
     atualizarSacola();
     fecharPopupProduto();
@@ -93,6 +99,8 @@ function atualizarSacola() {
 
                 <strong>R$ ${formatarPreco(totalItem)}</strong>
 
+                <button onclick="editarItemSacola(${index})">Editar</button>
+
                 <button onclick="removerItem(${index})">Remover</button>
             </div>
         `;
@@ -117,6 +125,15 @@ function diminuirQuantidadeSacola(index) {
     }
 
     atualizarSacola();
+}
+
+function editarItemSacola(index) {
+    const item = sacola[index];
+
+    itemEditandoIndex = index;
+
+    fecharSacola();
+    abrirPopupProduto(item.produtoId, item);
 }
 
 function removerItem(index) {

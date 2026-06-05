@@ -166,3 +166,17 @@ function atualizarStatusLoja() {
         statusLoja.classList.remove("aberto");
     }
 }
+
+function reconstruirAdicionais(adicionais) {
+    const resultado = {};
+
+    adicionais.forEach(function (adicional) {
+        const chave = adicional.opcao
+            ? `${adicional.nome} - ${adicional.opcao}`
+            : adicional.nome;
+
+        resultado[chave] = { ...adicional };
+    });
+
+    return resultado;
+}
