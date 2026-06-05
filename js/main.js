@@ -48,3 +48,6 @@ if (overlayAlerta) {
 
 carregarProdutos();
 configurarOverlays();
+
+atualizarStatusLoja();
+setInterval(atualizarStatusLoja, 60000);

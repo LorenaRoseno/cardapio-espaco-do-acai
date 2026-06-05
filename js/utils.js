@@ -119,3 +119,50 @@ function fecharAlerta() {
     document.querySelector("#overlay-alerta")
         .style.display = "none";
 }
+
+function lojaEstaAberta() {
+    const agora = new Date();
+
+    const dia = agora.getDay();
+    const horaAtual = agora.getHours() * 60 + agora.getMinutes();
+
+    const horarios = {
+        0: { abre: "14:30", fecha: "22:30" }, // Domingo
+        1: { abre: "13:45", fecha: "22:30" }, // Segunda
+        2: null,                              // Terça fechado
+        3: { abre: "13:45", fecha: "22:30" }, // Quarta
+        4: { abre: "13:45", fecha: "22:30" }, // Quinta
+        5: { abre: "13:45", fecha: "22:30" }, // Sexta
+        6: { abre: "14:30", fecha: "22:30" }  // Sábado
+    };
+
+    const horarioHoje = horarios[dia];
+
+    if (!horarioHoje) {
+        return false;
+    }
+
+    const [horaAbre, minutoAbre] = horarioHoje.abre.split(":").map(Number);
+    const [horaFecha, minutoFecha] = horarioHoje.fecha.split(":").map(Number);
+
+    const abertura = horaAbre * 60 + minutoAbre;
+    const fechamento = horaFecha * 60 + minutoFecha;
+
+    return horaAtual >= abertura && horaAtual <= fechamento;
+}
+
+function atualizarStatusLoja() {
+    const statusLoja = document.querySelector("#status-loja");
+
+    if (!statusLoja) return;
+
+    if (lojaEstaAberta()) {
+        statusLoja.textContent = "Loja aberta";
+        statusLoja.classList.add("aberto");
+        statusLoja.classList.remove("fechado");
+    } else {
+        statusLoja.textContent = "Loja fechada";
+        statusLoja.classList.add("fechado");
+        statusLoja.classList.remove("aberto");
+    }
+}

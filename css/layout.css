@@ -148,6 +148,25 @@ textarea {
     margin-right: 8px;
 }
 
+.status-loja {
+    padding: 8px 12px;
+    border: 2px solid var(--cor-borda);
+    border-radius: 20px;
+    color: var(--cor-destaque);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.status-loja.aberto {
+    background-color: var(--cor-status-open);
+    color: var(--cor-texto);
+}
+
+.status-loja.fechado {
+    background-color: var(--cor-status-close);
+    color: var(--cor-texto);
+}
+
 ::-webkit-scrollbar {
     height: 10px;
     width: 10px;

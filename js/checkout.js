@@ -4,6 +4,11 @@ function abrirCheckout() {
         return;
     }
 
+    if (!lojaEstaAberta()) {
+        mostrarAlerta("A loja está fechada no momento. Consulte o horário de funcionamento.");
+        return;
+    }
+
     fecharSacola();
     document.querySelector("#overlay-checkout").style.display = "flex";
 }

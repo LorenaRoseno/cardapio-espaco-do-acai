@@ -23,4 +23,7 @@
     --cor-overlay: rgba(0, 0, 0, 0.75);
     --cor-divisor: rgba(255, 212, 0, 0.35);
     --cor-borda: #ffcc00;
+
+    --cor-status-open: #0b7a2a;
+    --cor-status-close: #c10303;
 }
