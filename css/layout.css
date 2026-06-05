@@ -96,6 +96,16 @@ textarea {
     left: 0;
 }
 
+.menu-conteudo a {
+    color: var(--cor-texto);
+    text-decoration: none;
+}
+
+.menu-conteudo a:hover {
+    color: var(--cor-destaque);
+    text-decoration: underline;
+}
+
 .menu-header {
     display: flex;
     justify-content: space-between;
@@ -128,6 +138,14 @@ textarea {
 .menu-conteudo hr {
     border-color: var(--cor-divisor);
     margin: 20px 0;
+}
+
+.icone-menu {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-right: 8px;
 }
 
 ::-webkit-scrollbar {

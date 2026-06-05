@@ -161,6 +161,22 @@
         left: 0;
     }
 
+    .menu-conteudo {
+        max-height: calc(100vh - 90px);
+        overflow-y: auto;
+        padding: 18px;
+        box-sizing: border-box;
+    }
+
+    .menu-conteudo p {
+        line-height: 1.5;
+        word-break: break-word;
+    }
+
+    .menu-conteudo h3 {
+        font-size: 18px;
+    }
+
     #overlay-alerta {
         align-items: center;
         justify-content: center;
