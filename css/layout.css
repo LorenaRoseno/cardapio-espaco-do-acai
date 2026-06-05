@@ -15,9 +15,10 @@ body {
 
     background-color: #1e0035;
     background-image: url("../assets/background/background.png");
-    background-position: cover;
-    background-repeat: norepeat;
-    background-size: 1920px 1080px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 button,
