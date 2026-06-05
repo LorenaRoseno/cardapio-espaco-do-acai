@@ -15,8 +15,9 @@ body {
 
     background-color: #1e0035;
     background-image: url("../assets/background/background.png");
-    background-repeat: repeat;
-    background-size: 512px 512px;
+    background-position: cover;
+    background-repeat: norepeat;
+    background-size: 1920px 1080px;
 }
 
 button,
