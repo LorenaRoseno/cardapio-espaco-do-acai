@@ -49,6 +49,7 @@ textarea {
     gap: 18px;
     padding: 15px;
     overflow-x: auto;
+    scroll-behavior: smooth;
     background-color: var(--cor-card);
     border-bottom: 2px solid var(--cor-borda);
     position: sticky;
@@ -65,6 +66,13 @@ textarea {
 
 .categorias a:hover {
     color: var(--cor-texto);
+}
+
+.categorias a.ativo {
+    background-color: var(--cor-destaque);
+    color: var(--cor-texto-escuro);
+    border-radius: 20px;
+    padding: 8px 12px;
 }
 
 .secao {
@@ -185,3 +193,4 @@ textarea {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--cor-destaque);
 }
+
