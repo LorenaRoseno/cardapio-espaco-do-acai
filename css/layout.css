@@ -35,7 +35,13 @@ textarea {
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 15px;
+    padding: 5px 20px;
+}
+
+.logo-topo {
+    margin-left: auto;
+    height: 65px;
+    width: auto;
 }
 
 .menu-btn {
@@ -49,7 +55,7 @@ textarea {
 .categorias {
     display: flex;
     gap: 18px;
-    padding: 15px;
+    padding: 10px;
     overflow-x: auto;
     scroll-behavior: smooth;
     background-color: var(--cor-card);
@@ -57,6 +63,7 @@ textarea {
     position: sticky;
     top: 0;
     z-index: 10;
+
 }
 
 .categorias a {
@@ -64,6 +71,12 @@ textarea {
     text-decoration: none;
     font-weight: bold;
     white-space: nowrap;
+
+    padding: 10px 18px;
+    border: 2px solid var(--cor-borda);
+    border-radius: 999px;
+
+    transition: all 0.3s ease;
 }
 
 .categorias a:hover {
@@ -72,13 +85,11 @@ textarea {
 
 .categorias a.ativo {
     background-color: var(--cor-destaque);
-    color: var(--cor-texto-escuro);
-    border-radius: 20px;
-    padding: 8px 12px;
+    color: var(--cor-fundo);
 }
 
 .secao {
-    padding: 20px;
+    padding: 20px 40px;
 }
 
 .secao h2 {

@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
+
 }
 
 .produto-card {
@@ -14,6 +15,8 @@
     cursor: pointer;
     padding: 10px;
     transition: 0.2s;
+
+
 }
 
 .produto-card:hover {
