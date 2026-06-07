@@ -218,4 +218,10 @@
         border-bottom-left-radius: 0 !important;
         border-bottom-right-radius: 0 !important;
     }
+
+    .categorias {
+        width: 100% !important;
+        margin: 0 !important;
+        box-sizing: border-box;
+    }
 }
