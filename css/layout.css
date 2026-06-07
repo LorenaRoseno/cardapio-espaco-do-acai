@@ -29,6 +29,11 @@ textarea {
 }
 
 .topo {
+    width: min(1200px, calc(100% - 40px));
+    margin: 0 auto;
+    border-left: 2px solid var(--cor-borda);
+    border-right: 2px solid var(--cor-borda);
+    border-radius: 0 0 15px 15px;
     background-color: var(--cor-card);
     color: var(--cor-destaque);
     border-bottom: 3px solid var(--cor-borda);
@@ -53,6 +58,11 @@ textarea {
 }
 
 .categorias {
+    width: min(1200px, calc(100% - 40px));
+    margin: 0 auto;
+    border-left: 2px solid var(--cor-borda);
+    border-right: 2px solid var(--cor-borda);
+    border-radius: 0 0 15px 15px;
     display: flex;
     gap: 18px;
     padding: 10px;
@@ -63,7 +73,8 @@ textarea {
     position: sticky;
     top: 0;
     z-index: 10;
-
+    box-shadow: -100vw 2px 0 var(--cor-borda),
+        100vw 2px 0 var(--cor-borda);
 }
 
 .categorias a {
@@ -88,8 +99,10 @@ textarea {
     color: var(--cor-fundo);
 }
 
+
 .secao {
-    padding: 20px 40px;
+    width: min(1200px, calc(100% - 40px));
+    margin: 0 auto;
 }
 
 .secao h2 {
