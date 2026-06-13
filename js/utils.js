@@ -133,7 +133,7 @@ function lojaEstaAberta() {
         3: { abre: "13:45", fecha: "22:30" }, // Quarta
         4: { abre: "13:45", fecha: "22:30" }, // Quinta
         5: { abre: "13:45", fecha: "22:30" }, // Sexta
-        6: { abre: "14:30", fecha: "22:30" }  // Sábado
+        6: { abre: "14:30", fecha: "18:30" }  // Sábado
     };
 
     const horarioHoje = horarios[dia];
